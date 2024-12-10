@@ -7,7 +7,7 @@ const Sidebar = () => {
   const navigation = [
     { name: 'Dashboard', href: '/', icon: HomeIcon },
     { name: 'Mood Tracker', href: '/mood', icon: ChartBarIcon },
-    { name: 'AI Assistant', href: '/chat', icon: ChatBubbleLeftIcon },
+    { name: 'Echo Assistant', href: '/chat', icon: ChatBubbleLeftIcon },
     { name: 'Resources', href: '/resources', icon: BookOpenIcon },
     { name: 'Profile', href: '/profile', icon: UserIcon },
     { name: 'Notifications', href: '/notifications', icon: BellIcon },
