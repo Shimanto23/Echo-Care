@@ -15,7 +15,7 @@ const AIChat = () => {
 
   return (
     <div className="p-6 h-full flex flex-col">
-      <h1 className="text-3xl font-bold mb-8">AI Assistant</h1>
+      <h1 className="text-3xl font-bold mb-8">Echo Assistant</h1>
       
       <div className="flex-1 bg-white rounded-lg shadow overflow-hidden flex flex-col">
         <div className="flex-1 overflow-y-auto p-4 space-y-4">
