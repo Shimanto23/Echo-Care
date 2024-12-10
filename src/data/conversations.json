@@ -1,0 +1,27 @@
+{
+  "greetings": [
+    {"context": "Hi", "response": "Hello there. Tell me how are you feeling today?"},
+    {"context": "Hey", "response": "Hi there. What brings you here today?"},
+    {"context": "Hello", "response": "Great to see you. How do you feel currently??"}
+  ],
+  "emotions": {
+    "sad": [
+      {"context": "I am feeling lonely", "response": "I'm sorry to hear that. I'm here for you. Talking about it might help. So, tell me why do you think you're feeling this way?"},
+      {"context": "I feel sad", "response": "I'm here for you. Could you tell me why you're feeling this way?"}
+    ],
+    "stressed": [
+      {"context": "I am so stressed", "response": "Take a deep breath and gather your thoughts. Go take a walk if possible. Stay hydrated"},
+      {"context": "I feel stuck", "response": "Give yourself a break. Go easy on yourself."}
+    ],
+    "anxious": [
+      {"context": "I feel so anxious", "response": "Don't be hard on yourself. What's the reason behind this?"},
+      {"context": "I'm anxious", "response": "I understand that it can be scary. Tell me more about it."}
+    ]
+  },
+  "mental_health": {
+    "facts": [
+      {"context": "What is mental health?", "response": "Mental health includes our emotional, psychological, and social well-being. It affects how we think, feel, and act. It also helps determine how we handle stress, relate to others, and make choices."},
+      {"context": "Why is mental health important?", "response": "Maintaining mental health is crucial to stabilizing constructive behaviors, emotions, and thoughts. Focusing on mental health care can increase productivity, enhance our self-image, and improve relationships."}
+    ]
+  }
+}

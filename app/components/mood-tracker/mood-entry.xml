@@ -1,0 +1,17 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd">
+  <ScrollView>
+    <StackLayout class="p-4">
+      <Label text="How are you feeling?" class="text-2xl mb-4" />
+      
+      <Slider value="{{ moodLevel }}" minValue="1" maxValue="5" class="mb-4" />
+      
+      <Label text="Add a note about your day" class="text-lg mb-2" />
+      <TextView hint="What's on your mind?" text="{{ note }}" class="mb-4 p-2 border rounded" />
+      
+      <Label text="Hours of sleep" class="text-lg mb-2" />
+      <TextField keyboardType="number" text="{{ sleepHours }}" class="mb-4" />
+      
+      <Button text="Save Entry" tap="{{ saveMoodEntry }}" class="-primary" />
+    </StackLayout>
+  </ScrollView>
+</Page>
