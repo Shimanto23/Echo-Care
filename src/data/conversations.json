@@ -1,27 +1,66 @@
 {
   "greetings": [
-    {"context": "Hi", "response": "Hello there. Tell me how are you feeling today?"},
-    {"context": "Hey", "response": "Hi there. What brings you here today?"},
-    {"context": "Hello", "response": "Great to see you. How do you feel currently??"}
+    {"context": "Hi", "response": "Hi! How's it going today?"},
+    {"context": "Hey", "response": "Hey there! What's on your mind?"},
+    {"context": "Hello", "response": "Hello! How can I assist you today?"}
   ],
   "emotions": {
     "sad": [
-      {"context": "I am feeling lonely", "response": "I'm sorry to hear that. I'm here for you. Talking about it might help. So, tell me why do you think you're feeling this way?"},
-      {"context": "I feel sad", "response": "I'm here for you. Could you tell me why you're feeling this way?"}
+      {"context": "I am feeling lonely", "response": "I'm sorry to hear that. I'm here to listen. What has been troubling you?"},
+      {"context": "I feel sad", "response": "I'm here for you. Would you like to talk about it?"},
+      {"context": "I feel empty", "response": "Can you share more about why you might be feeling this way?"},
+      {"context": "I don't have anyone", "response": "That sounds tough. How long have you felt this way?"}
     ],
     "stressed": [
-      {"context": "I am so stressed", "response": "Take a deep breath and gather your thoughts. Go take a walk if possible. Stay hydrated"},
-      {"context": "I feel stuck", "response": "Give yourself a break. Go easy on yourself."}
+      {"context": "I am so stressed", "response": "Stress can be overwhelming. Let's figure this out together."},
+      {"context": "I feel stuck", "response": "It's okay to feel stuck sometimes. What might help you feel better?"},
+      {"context": "I am so burned out", "response": "Burnout is hard. What's been contributing to this?"},
+      {"context": "I still feel stressed", "response": "I'm sorry to hear that. Let's talk about what's going on."}
     ],
     "anxious": [
-      {"context": "I feel so anxious", "response": "Don't be hard on yourself. What's the reason behind this?"},
-      {"context": "I'm anxious", "response": "I understand that it can be scary. Tell me more about it."}
+      {"context": "I feel so anxious", "response": "It's okay to feel anxious. What do you think is causing it?"},
+      {"context": "I'm anxious", "response": "Anxiety can be overwhelming. Would you like to share more?"},
+      {"context": "I feel so anxious.", "response": "I'm here to support you. Tell me more about how you're feeling."},
+      {"context": "I'm so anxious because of ", "response": "It helps to talk it through. What's been on your mind?"}
     ]
   },
   "mental_health": {
     "facts": [
-      {"context": "What is mental health?", "response": "Mental health includes our emotional, psychological, and social well-being. It affects how we think, feel, and act. It also helps determine how we handle stress, relate to others, and make choices."},
-      {"context": "Why is mental health important?", "response": "Maintaining mental health is crucial to stabilizing constructive behaviors, emotions, and thoughts. Focusing on mental health care can increase productivity, enhance our self-image, and improve relationships."}
+      {"context": "What is mental health?", "response": "Mental health refers to our emotional, psychological, and social well-being. It influences how we think, feel, and interact with the world."},
+      {"context": "Why is mental health important?", "response": "Good mental health supports overall well-being, helps with coping skills, and enhances relationships and productivity."},
+      {"context": "What can you do?", "response": "I can offer general guidance on mental health topics, provide a listening ear, and suggest ways to navigate emotions."}
+    ],
+    "queries": [
+      {"context": "Tell me a fact about mental health", "response": "According to a UNICEF report, one in seven Indians between 15-24 years of age feels depressed."},
+      {"context": "Am I depressed?", "response": "For a diagnosis of depression, a person needs to have experienced low mood or loss of interest for at least two weeks, along with other symptoms such as sadness, hopelessness, or irritability."},
+      {"context": "How do I handle stress?", "response": "Consider practices like mindfulness, regular exercise, and talking to someone you trust. It's okay to seek help when needed."}
+    ],
+    "definitions": [
+      {"context": "Define Depression", "response": "Depression is a mental health disorder characterized by persistently depressed mood or loss of interest in activities, causing significant impairment in daily life."},
+      {"context": "How do I know if I have depression?", "response": "Symptoms include feelings of sadness, hopelessness, or irritability nearly every day, along with a loss of interest in activities for at least two weeks."}
+    ]
+  },
+  "support": {
+    "guidance": [
+      {"context": "I want some advice.", "response": "Sure. What can I do to help?"},
+      {"context": "I feel lost.", "response": "It's okay to feel this way sometimes. Let's figure out what steps might help."},
+      {"context": "Can you suggest something to help me relax?", "response": "Of course! Deep breathing exercises, meditation, or even a short walk might help."}
+    ],
+    "tips": [
+      {"context": "I feel stressed about exams.", "response": "Exams can be challenging. Have you tried setting up a study schedule or taking short breaks while studying?"},
+      {"context": "I don't feel prepared for exams.", "response": "It's normal to feel this way. Start with small goals and tackle one topic at a time. You’ve got this!"},
+      {"context": "I feel overwhelmed.", "response": "Take it one step at a time. Break tasks into smaller pieces and prioritize what needs to be done first."}
+    ]
+  },
+  "miscellaneous": {
+    "jokes": [
+      {"context": "Tell me a joke", "response": "Mental health is not a joke."},
+      {"context": "Tell me another joke", "response": "Why don’t skeletons fight each other? They don’t have the guts!"}
+    ],
+    "location": [
+      {"context": "Where are you?", "response": "I live in your computer!"},
+      {"context": "Where do you live?", "response": "Everywhere and nowhere."},
+      {"context": "What is your location?", "response": "Somewhere in the universe."}
     ]
   }
 }
