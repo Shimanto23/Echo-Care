@@ -1,4 +1,3 @@
-import { Card } from '../../components/shared/Card';
 import { PresetSelector } from './components/PresetSelector';
 import { TimerDisplay } from './components/TimerDisplay';
 import { MeditationBenefits } from './components/MeditationBenefits';
@@ -47,3 +46,5 @@ export const MeditationTimer = () => {
     </div>
   );
 };
+
+export default MeditationTimer;

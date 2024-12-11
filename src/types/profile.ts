@@ -6,6 +6,11 @@ export interface Preferences {
   reminders: boolean;
 }
 
+export interface PreferencesProps {
+  preferences: Preferences;
+  onPreferenceChange: (key: keyof Preferences, value: boolean) => void;
+}
+
 export interface PersonalInfo {
   name: string;
   email: string;

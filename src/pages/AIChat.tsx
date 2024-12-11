@@ -1,6 +1,6 @@
 import { useChat } from '../utils/chatUtils';
-import { ChatMessage } from '../components/chat/ChatMessage';
 import { ChatInput } from '../components/chat/ChatInput';
+import { ChatMessage } from '../components/chat/ChatMessage';
 
 const EchoAssistant = () => {
   const { messages, handleUserMessage } = useChat();
