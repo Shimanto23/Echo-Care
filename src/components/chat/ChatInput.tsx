@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { Button } from '../shared/Button';
-import { MicrophoneIcon, PaperAirplaneIcon } from '@heroicons/react/24/outline';
+import { PaperAirplaneIcon } from '@heroicons/react/24/outline';
 import { useSpeechRecognition } from '../../hooks/useSpeechRecognition';
 import { SpeechError } from './SpeechError';
+import { RecordingIcon } from './RecordingIcon';
 
 interface ChatInputProps {
   onSend: (message: string) => void;
@@ -61,9 +62,7 @@ export const ChatInput = ({ onSend }: ChatInputProps) => {
               }`}
               title={isListening ? 'Stop recording' : 'Start recording'}
             >
-              <MicrophoneIcon className={`w-5 h-5 ${
-                isListening ? 'animate-pulse' : ''
-              }`} />
+              <RecordingIcon isRecording={isListening} />
             </Button>
           )}
         </div>
