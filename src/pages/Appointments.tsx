@@ -6,7 +6,7 @@ import { therapists } from '../data/therapists';
 import { Therapist } from '../types/appointments';
 
 const Appointments = () => {
-  const [selectedTherapist, setSelectedTherapist] = useState<Therapist | undefined>();
+  const [selectedTherapist, setSelectedTherapist] = useState<Therapist | null>(null);
   const [showForm, setShowForm] = useState(false);
 
   const handleTherapistSelect = (therapist: Therapist) => {

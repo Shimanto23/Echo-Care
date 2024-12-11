@@ -1,21 +1,17 @@
-export interface Preferences {
-  notifications: boolean;
-  emailUpdates: boolean;
-  darkMode: boolean;
-  language: string;
-  reminders: boolean;
-}
-
-export interface PreferencesProps {
-  preferences: Preferences;
-  onPreferenceChange: (key: keyof Preferences, value: boolean) => void;
-}
-
-export interface PersonalInfo {
+// Add to existing types
+export interface UserProfile {
+  id: string;
   name: string;
   email: string;
+  avatarUrl: string | null;
   phone: string;
   location: string;
   timezone: string;
   bio: string;
+}
+
+export interface ProfileImageProps {
+  imageUrl: string | null;
+  onImageUpload: (file: File) => void;
+  isUploading?: boolean;
 }
