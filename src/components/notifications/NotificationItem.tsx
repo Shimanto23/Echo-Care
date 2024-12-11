@@ -1,4 +1,3 @@
-import { ComponentProps } from 'react';
 import { Notification } from '../../types/notifications';
 
 interface NotificationItemProps {

@@ -15,7 +15,6 @@ export const JournalEntryList: FC<JournalEntryListProps> = ({ entries, onDeleteE
     selectedTags,
     selectedMood,
     dateRange,
-    handleTagFilter,
     handleMoodFilter,
     handleDateRangeFilter,
     clearFilters
@@ -27,7 +26,6 @@ export const JournalEntryList: FC<JournalEntryListProps> = ({ entries, onDeleteE
         selectedTags={selectedTags}
         selectedMood={selectedMood}
         dateRange={dateRange}
-        onTagFilter={handleTagFilter}
         onMoodFilter={handleMoodFilter}
         onDateRangeFilter={handleDateRangeFilter}
         onClearFilters={clearFilters}

@@ -4,9 +4,10 @@ import { Button } from '../components/shared/Button';
 import { TherapistCard } from '../components/appointments/TherapistCard';
 import { AppointmentForm } from '../components/appointments/AppointmentForm';
 import { therapists } from '../data/therapists';
+import { Therapist } from '../types/appointments';
 
 const Appointments = () => {
-  const [selectedTherapist, setSelectedTherapist] = useState(null);
+  const [selectedTherapist, setSelectedTherapist] = useState<Therapist | null>(null);
   const [showForm, setShowForm] = useState(false);
 
   return (
@@ -65,14 +66,15 @@ const Appointments = () => {
           >
             ← Back to Therapists
           </Button>
-          <AppointmentForm
-            therapist={selectedTherapist}
-            onSubmit={(data) => {
-              console.log('Appointment booked:', data);
-              // Handle appointment booking
-              setShowForm(false);
-            }}
-          />
+          {selectedTherapist && (
+            <AppointmentForm
+              therapist={selectedTherapist}
+              onSubmit={(data) => {
+                console.log('Appointment booked:', data);
+                setShowForm(false);
+              }}
+            />
+          )}
         </div>
       )}
     </div>

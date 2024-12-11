@@ -1,5 +1,5 @@
 import { createContext, useContext, useReducer } from 'react';
-import { AuthState, AuthAction, User } from '../types/user';
+import { AuthState, AuthAction } from '../types/user';
 
 const initialState: AuthState = {
   user: null,

@@ -1,7 +1,7 @@
 import { DateRange } from '../../types/journal';
 import { getMoodEmoji } from '../../utils/journalUtils';
 
-interface JournalFiltersProps {
+export interface JournalFiltersProps {
   selectedTags: string[];
   selectedMood: number | null;
   dateRange: DateRange;
@@ -11,7 +11,6 @@ interface JournalFiltersProps {
 }
 
 export const JournalFilters = ({
-  selectedTags,
   selectedMood,
   dateRange,
   onMoodFilter,
@@ -59,7 +58,7 @@ export const JournalFilters = ({
         </div>
       </div>
 
-      {(selectedTags.length > 0 || selectedMood !== null || dateRange !== 'all') && (
+      {(selectedMood !== null || dateRange !== 'all') && (
         <div className="mt-4 flex justify-end">
           <button
             onClick={onClearFilters}
