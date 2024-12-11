@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Sidebar from './components/Sidebar';
+import { Sidebar } from './components/Sidebar';
 import Landing from './pages/Landing';
 import Dashboard from './pages/Dashboard';
-import MentalHealthCheck from './pages/MentalHealthCheck';
+import { MentalHealthCheck } from './pages/mental-health/MentalHealthCheck';
 import EchoAssistant from './pages/AIChat';
 import Resources from './pages/Resources';
 import Profile from './pages/Profile';
@@ -11,7 +11,7 @@ import Notifications from './pages/Notifications';
 import MeditationTimer from './pages/MeditationTimer';
 import Journal from './pages/Journal';
 
-const App = () => {
+export const App = () => {
   return (
     <Router>
       <Routes>
@@ -41,5 +41,3 @@ const App = () => {
     </Router>
   );
 };
-
-export default App;

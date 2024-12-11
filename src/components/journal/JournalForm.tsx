@@ -10,14 +10,10 @@ interface JournalFormProps {
   setContent: (value: string) => void;
   mood: number;
   setMood: (value: number) => void;
-  selectedTags: string[];
-  setSelectedTags: (value: string[]) => void;
   gratitudeList: string[];
   setGratitudeList: (value: string[]) => void;
   newGratitude: string;
   setNewGratitude: (value: string) => void;
-  selectedActivities: string[];
-  setSelectedActivities: (value: string[]) => void;
   onSubmit: (e: React.FormEvent) => void;
 }
 
@@ -28,14 +24,10 @@ export const JournalForm: FC<JournalFormProps> = ({
   setContent,
   mood,
   setMood,
-  selectedTags,
-  setSelectedTags,
   gratitudeList,
   setGratitudeList,
   newGratitude,
   setNewGratitude,
-  selectedActivities,
-  setSelectedActivities,
   onSubmit
 }) => {
   const handleAddGratitude = () => {
@@ -86,6 +78,42 @@ export const JournalForm: FC<JournalFormProps> = ({
           placeholder="What's on your mind? How are you feeling? What challenges or victories did you experience today?"
           required
         />
+      </div>
+
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-2">
+          Gratitude List
+        </label>
+        <div className="space-y-2">
+          {gratitudeList.map((item, index) => (
+            <div key={index} className="flex items-center gap-2">
+              <span className="flex-1">{item}</span>
+              <button
+                type="button"
+                onClick={() => setGratitudeList(gratitudeList.filter((_, i) => i !== index))}
+                className="text-red-500 hover:text-red-600"
+              >
+                Remove
+              </button>
+            </div>
+          ))}
+          <div className="flex gap-2">
+            <input
+              type="text"
+              value={newGratitude}
+              onChange={(e) => setNewGratitude(e.target.value)}
+              className="flex-1 border rounded-md p-2"
+              placeholder="What are you grateful for today?"
+            />
+            <button
+              type="button"
+              onClick={handleAddGratitude}
+              className="px-4 py-2 bg-teal-50 text-teal-700 rounded-md hover:bg-teal-100"
+            >
+              Add
+            </button>
+          </div>
+        </div>
       </div>
 
       <Button type="submit">Save Entry</Button>

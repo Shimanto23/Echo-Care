@@ -1,6 +1,4 @@
-import { Therapist } from '../types/appointments';
-
-export const therapists: Therapist[] = [
+export const therapists = [
   {
     id: 1,
     name: 'Dr. Sarah Johnson',

@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import { DateRange } from '../../types/journal';
 import { getMoodEmoji } from '../../utils/journalUtils';
 
@@ -6,21 +5,19 @@ interface JournalFiltersProps {
   selectedTags: string[];
   selectedMood: number | null;
   dateRange: DateRange;
-  onTagFilter: (tag: string) => void;
   onMoodFilter: (mood: number | null) => void;
   onDateRangeFilter: (range: DateRange) => void;
   onClearFilters: () => void;
 }
 
-export const JournalFilters: FC<JournalFiltersProps> = ({
+export const JournalFilters = ({
   selectedTags,
   selectedMood,
   dateRange,
-  onTagFilter,
   onMoodFilter,
   onDateRangeFilter,
   onClearFilters
-}) => {
+}: JournalFiltersProps) => {
   return (
     <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
       <div className="flex flex-wrap gap-4">

@@ -4,15 +4,13 @@ import { JournalForm } from '../components/journal/JournalForm';
 import { JournalEntryList } from '../components/journal/JournalEntryList';
 import { JournalEntry } from '../types/journal';
 
-const Journal = () => {
+export const Journal = () => {
   const [entries, setEntries] = useState<JournalEntry[]>([]);
   const [newEntry, setNewEntry] = useState('');
   const [title, setTitle] = useState('');
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [mood, setMood] = useState(3);
   const [gratitudeList, setGratitudeList] = useState<string[]>([]);
   const [newGratitude, setNewGratitude] = useState('');
-  const [selectedActivities, setSelectedActivities] = useState<string[]>([]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -24,9 +22,9 @@ const Journal = () => {
       title: title.trim(),
       content: newEntry.trim(),
       mood,
-      tags: selectedTags,
+      tags: [],
       gratitude: gratitudeList,
-      activities: selectedActivities
+      activities: []
     };
 
     setEntries([entry, ...entries]);
@@ -36,10 +34,8 @@ const Journal = () => {
   const resetForm = () => {
     setTitle('');
     setNewEntry('');
-    setSelectedTags([]);
     setMood(3);
     setGratitudeList([]);
-    setSelectedActivities([]);
   };
 
   const handleDeleteEntry = (id: string) => {
@@ -63,14 +59,10 @@ const Journal = () => {
               setContent={setNewEntry}
               mood={mood}
               setMood={setMood}
-              selectedTags={selectedTags}
-              setSelectedTags={setSelectedTags}
               gratitudeList={gratitudeList}
               setGratitudeList={setGratitudeList}
               newGratitude={newGratitude}
               setNewGratitude={setNewGratitude}
-              selectedActivities={selectedActivities}
-              setSelectedActivities={setSelectedActivities}
               onSubmit={handleSubmit}
             />
           </CardBody>
