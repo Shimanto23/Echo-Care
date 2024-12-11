@@ -1,41 +1,54 @@
+import { useState } from 'react';
+import { ResourceCard } from '../components/resources/ResourceCard';
+import { resources } from '../data/resources';
+
 const Resources = () => {
-  const resources = [
-    {
-      id: 1,
-      title: 'Meditation Basics',
-      description: 'Learn the fundamentals of meditation and mindfulness.',
-      category: 'Self-Care',
-    },
-    {
-      id: 2,
-      title: 'Stress Management',
-      description: 'Effective techniques for managing daily stress.',
-      category: 'Mental Health',
-    },
-    {
-      id: 3,
-      title: 'Sleep Hygiene',
-      description: 'Tips for better sleep and establishing a healthy routine.',
-      category: 'Wellness',
-    },
-  ];
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+
+  const categories = Array.from(new Set(resources.map(r => r.category)));
+  
+  const filteredResources = selectedCategory
+    ? resources.filter(r => r.category === selectedCategory)
+    : resources;
 
   return (
     <div className="p-6">
-      <h1 className="text-3xl font-bold mb-8">Resource Library</h1>
+      <div className="mb-8">
+        <h1 className="text-3xl font-bold">Resource Library</h1>
+        <p className="mt-2 text-gray-600">
+          Comprehensive resources for understanding and managing mental health
+        </p>
+      </div>
+
+      <div className="mb-6 flex flex-wrap gap-2">
+        <button
+          onClick={() => setSelectedCategory(null)}
+          className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+            !selectedCategory
+              ? 'bg-teal-100 text-teal-700'
+              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+          }`}
+        >
+          All
+        </button>
+        {categories.map(category => (
+          <button
+            key={category}
+            onClick={() => setSelectedCategory(category)}
+            className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+              selectedCategory === category
+                ? 'bg-teal-100 text-teal-700'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+            }`}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {resources.map(resource => (
-          <div key={resource.id} className="bg-white p-6 rounded-lg shadow">
-            <span className="text-sm font-medium text-indigo-600">
-              {resource.category}
-            </span>
-            <h2 className="mt-2 text-xl font-semibold">{resource.title}</h2>
-            <p className="mt-2 text-gray-500">{resource.description}</p>
-            <button className="mt-4 text-indigo-600 hover:text-indigo-700">
-              Learn More →
-            </button>
-          </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {filteredResources.map(resource => (
+          <ResourceCard key={resource.id} resource={resource} />
         ))}
       </div>
     </div>

@@ -1,10 +1,10 @@
-import { Card, CardHeader, CardBody } from '../components/shared/Card';
-import { MeditationPresetCard } from '../components/meditation/MeditationPresetCard';
-import { MeditationControls } from '../components/meditation/MeditationControls';
-import { MeditationBenefits } from '../components/meditation/MeditationBenefits';
-import { useMeditationTimer } from '../hooks/useMeditationTimer';
-import { formatTime } from '../utils/timeUtils';
-import { meditationPresets } from '../data/meditationPresets';
+import { Card, CardHeader, CardBody } from '../shared/Card';
+import { MeditationPresetCard } from './MeditationPresetCard';
+import { MeditationControls } from './MeditationControls';
+import { MeditationBenefits } from './MeditationBenefits';
+import { meditationPresets } from '../../data/meditationPresets';
+import { useMeditationTimer } from '../../hooks/useMeditationTimer';
+import { formatTime } from '../../utils/timeUtils';
 
 const MeditationTimer = () => {
   const {
@@ -26,7 +26,7 @@ const MeditationTimer = () => {
       <h1 className="text-3xl font-bold mb-8">Meditation Timer</h1>
       
       <div className="max-w-4xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           {meditationPresets.map(preset => (
             <MeditationPresetCard
               key={preset.id}
@@ -45,7 +45,7 @@ const MeditationTimer = () => {
                   ? formatTime(timeLeft)
                   : selectedPreset
                     ? `${selectedPreset.name} - ${selectedPreset.duration} minutes`
-                    : 'Select a meditation preset to begin'
+                    : 'Select a meditation'
                 }
               </h2>
             </div>

@@ -6,6 +6,7 @@ import MentalHealthCheck from './pages/MentalHealthCheck';
 import EchoAssistant from './pages/AIChat';
 import Resources from './pages/Resources';
 import Profile from './pages/Profile';
+import Appointments from './pages/Appointments';
 import Notifications from './pages/Notifications';
 import MeditationTimer from './pages/MeditationTimer';
 import Journal from './pages/Journal';
@@ -27,6 +28,7 @@ const App = () => {
                   <Route path="/chat" element={<EchoAssistant />} />
                   <Route path="/resources" element={<Resources />} />
                   <Route path="/profile" element={<Profile />} />
+                  <Route path="/appointments" element={<Appointments />} />
                   <Route path="/notifications" element={<Notifications />} />
                   <Route path="/meditation" element={<MeditationTimer />} />
                   <Route path="/journal" element={<Journal />} />

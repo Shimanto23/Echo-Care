@@ -7,17 +7,20 @@ import {
   UserIcon, 
   BellIcon,
   PencilSquareIcon,
-  HeartIcon
+  HeartIcon,
+  CalendarIcon
 } from '@heroicons/react/24/outline';
+import { UserProfileMenu } from './UserProfileMenu';
 
 const navigation = [
   { name: 'Dashboard', href: '/dashboard', icon: HomeIcon },
   { name: 'Mental Health Check', href: '/mental-health-check', icon: BeakerIcon },
-  { name: 'Echo Assistant', href: '/chat', icon: ChatBubbleLeftIcon }, // Updated name
+  { name: 'Echo Assistant', href: '/chat', icon: ChatBubbleLeftIcon },
   { name: 'Journal', href: '/journal', icon: PencilSquareIcon },
   { name: 'Meditation', href: '/meditation', icon: HeartIcon },
   { name: 'Resources', href: '/resources', icon: BookOpenIcon },
   { name: 'Profile', href: '/profile', icon: UserIcon },
+  { name: 'Book Appointment', href: '/appointments', icon: CalendarIcon },
   { name: 'Notifications', href: '/notifications', icon: BellIcon },
 ];
 
@@ -49,16 +52,8 @@ const Sidebar = () => {
           );
         })}
       </nav>
-      <div className="p-4 border-t">
-        <div className="flex items-center space-x-3">
-          <div className="w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center">
-            <UserIcon className="w-5 h-5 text-teal-700" />
-          </div>
-          <div>
-            <p className="text-sm font-medium text-gray-700">Demo User</p>
-            <p className="text-xs text-gray-500">demo@example.com</p>
-          </div>
-        </div>
+      <div className="border-t">
+        <UserProfileMenu />
       </div>
     </div>
   );
