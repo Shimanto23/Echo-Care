@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useChat } from '../utils/chatUtils';
 
-const AIChat = () => {
+const EchoAssistant = () => {
   const { messages, handleUserMessage } = useChat();
   const [input, setInput] = useState('');
 
@@ -59,4 +59,4 @@ const AIChat = () => {
   );
 };
 
-export default AIChat;
+export default EchoAssistant;
