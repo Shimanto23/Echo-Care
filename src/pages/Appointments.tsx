@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import { Card, CardHeader, CardBody } from '../components/shared/Card';
-import { Button } from '../components/shared/Button';
 import { TherapistCard } from '../components/appointments/TherapistCard';
 import { AppointmentForm } from '../components/appointments/AppointmentForm';
+import { Button } from '../components/shared/Button';
 import { therapists } from '../data/therapists';
 import { Therapist } from '../types/appointments';
 

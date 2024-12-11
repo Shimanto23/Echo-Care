@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { MeditationPreset } from '../types/meditation';
 import { useSound } from './useSound';
 
@@ -9,8 +9,16 @@ export const useMeditationTimer = () => {
   const [selectedPreset, setSelectedPreset] = useState<MeditationPreset | null>(null);
   const [currentGuidanceIndex, setCurrentGuidanceIndex] = useState(0);
   const [showGuidance, setShowGuidance] = useState(true);
+  const timerRef = useRef<NodeJS.Timeout>();
 
-  const { playBell, playAmbient, pauseAmbient, stopAmbient } = useSound();
+  const { playBell, stopBell, cleanup, isPlaying } = useSound();
+
+  const clearTimer = useCallback(() => {
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+      timerRef.current = undefined;
+    }
+  }, []);
 
   const startMeditation = useCallback(() => {
     if (selectedPreset) {
@@ -19,35 +27,28 @@ export const useMeditationTimer = () => {
       setIsPaused(false);
       setCurrentGuidanceIndex(0);
       playBell();
-      playAmbient();
     }
-  }, [selectedPreset, playBell, playAmbient]);
+  }, [selectedPreset, playBell]);
 
   const pauseMeditation = useCallback(() => {
-    setIsPaused(prev => {
-      if (prev) {
-        playAmbient();
-      } else {
-        pauseAmbient();
-      }
-      return !prev;
-    });
-  }, [playAmbient, pauseAmbient]);
+    setIsPaused(prev => !prev);
+    if (!isPaused) {
+      clearTimer();
+    }
+  }, [clearTimer, isPaused]);
 
   const stopMeditation = useCallback(() => {
+    clearTimer();
     setIsActive(false);
     setIsPaused(false);
     setTimeLeft(0);
     setCurrentGuidanceIndex(0);
-    stopAmbient();
-    playBell();
-  }, [stopAmbient, playBell]);
+    stopBell();
+  }, [clearTimer, stopBell]);
 
   useEffect(() => {
-    let interval: NodeJS.Timeout;
-    
     if (isActive && !isPaused && timeLeft > 0) {
-      interval = setInterval(() => {
+      timerRef.current = setInterval(() => {
         setTimeLeft(time => {
           if (time <= 1) {
             stopMeditation();
@@ -63,10 +64,18 @@ export const useMeditationTimer = () => {
           );
         }
       }, 1000);
-    }
 
-    return () => clearInterval(interval);
-  }, [isActive, isPaused, timeLeft, selectedPreset, stopMeditation]);
+      return () => clearTimer();
+    }
+  }, [isActive, isPaused, timeLeft, selectedPreset, stopMeditation, clearTimer]);
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      clearTimer();
+      cleanup();
+    };
+  }, [clearTimer, cleanup]);
 
   return {
     timeLeft,
@@ -75,6 +84,7 @@ export const useMeditationTimer = () => {
     selectedPreset,
     currentGuidanceIndex,
     showGuidance,
+    isPlaying,
     setSelectedPreset,
     setShowGuidance,
     startMeditation,

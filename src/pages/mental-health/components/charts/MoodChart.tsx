@@ -1,9 +1,5 @@
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
-interface MoodChartProps {
-  timeRange: 'week' | 'month' | 'year';
-}
-
 const demoData = [
   { date: '2024-01-01', mood: 4 },
   { date: '2024-01-02', mood: 3 },
@@ -14,7 +10,7 @@ const demoData = [
   { date: '2024-01-07', mood: 5 },
 ];
 
-export const MoodChart = ({ timeRange }: MoodChartProps) => {
+export const MoodChart = () => {
   return (
     <div className="space-y-4">
       <h3 className="text-lg font-medium">Mood Trends</h3>

@@ -1,9 +1,5 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
-interface SleepChartProps {
-  timeRange: 'week' | 'month' | 'year';
-}
-
 const demoData = [
   { date: '2024-01-01', hours: 7.5 },
   { date: '2024-01-02', hours: 6.5 },
@@ -14,7 +10,7 @@ const demoData = [
   { date: '2024-01-07', hours: 8.5 },
 ];
 
-export const SleepChart = ({ timeRange }: SleepChartProps) => {
+export const SleepChart = () => {
   return (
     <div className="space-y-4">
       <h3 className="text-lg font-medium">Sleep Patterns</h3>
