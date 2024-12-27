@@ -2,58 +2,34 @@ import { useState } from 'react';
 import { ProfileOverview } from '../components/profile/ProfileOverview';
 import { PersonalInfoSection } from '../components/profile/PersonalInfoSection';
 import { PreferencesSection } from '../components/profile/PreferencesSection';
+import { useProfileSettings } from '../hooks/useProfileSettings';
+import type { PersonalInfo } from '../components/profile/types';
 
 const Profile = () => {
   const [isEditing, setIsEditing] = useState(false);
-  const [profile, setProfile] = useState({
-    name: 'Demo User',
-    email: 'demo@example.com',
-    phone: '+1 (555) 123-4567',
-    location: 'San Francisco, CA',
-    timezone: 'Pacific Time (PT)',
-    bio: 'Passionate about mental health and well-being.',
-    avatarUrl: null as string | null
-  });
+  const { profile, preferences, updateProfile, updatePreferences } = useProfileSettings();
 
-  const [preferences, setPreferences] = useState({
-    notifications: {
-      enabled: true,
-      dailyReminders: true,
-      weeklyDigest: true,
-      moodReminders: true,
-      meditationReminders: true
-    },
-    privacy: {
-      shareProgress: false,
-      anonymousDataCollection: true,
-      showProfilePublicly: false
-    },
-    accessibility: {
-      highContrast: false,
-      largeText: false,
-      reduceMotion: false
-    }
-  });
+  const handleAvatarChange = (url: string) => {
+    updateProfile({
+      ...profile,
+      avatarUrl: url
+    });
+  };
+
+  const handleProfileSave = (updatedInfo: Omit<PersonalInfo, 'avatarUrl'>) => {
+    updateProfile({
+      ...profile,
+      ...updatedInfo
+    });
+    setIsEditing(false);
+  };
 
   const handlePreferenceChange = (
     section: 'notifications' | 'privacy' | 'accessibility',
     key: string,
     value: boolean
   ) => {
-    setPreferences(prev => ({
-      ...prev,
-      [section]: {
-        ...prev[section],
-        [key]: value
-      }
-    }));
-  };
-
-  const handleAvatarChange = (url: string) => {
-    setProfile(prev => ({
-      ...prev,
-      avatarUrl: url
-    }));
+    updatePreferences(section, key, value);
   };
 
   return (
@@ -76,11 +52,14 @@ const Profile = () => {
             personalInfo={profile}
             isEditing={isEditing}
             onEditToggle={() => setIsEditing(!isEditing)}
+            onSave={handleProfileSave}
           />
-          <PreferencesSection
-            preferences={preferences}
-            onPreferenceChange={handlePreferenceChange}
-          />
+          <div className="mt-6">
+            <PreferencesSection
+              preferences={preferences}
+              onPreferenceChange={handlePreferenceChange}
+            />
+          </div>
         </div>
       </div>
     </div>

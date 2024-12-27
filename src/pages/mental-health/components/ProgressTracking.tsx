@@ -1,6 +1,5 @@
 import { useState, useMemo } from 'react';
 import { Card, CardHeader, CardBody } from '../../../components/shared/Card';
-import { MoodChart } from './charts/MoodChart';
 import { ActivityStats } from './charts/ActivityStats';
 import { SleepChart } from './charts/SleepChart';
 import { TimeRangeSelector } from './charts/TimeRangeSelector';
@@ -26,7 +25,6 @@ export const ProgressTracking = () => {
         </CardHeader>
         <CardBody>
           <div className="space-y-8">
-            <MoodChart timeRange={timeRange} />
             <SleepChart timeRange={timeRange} />
             <ActivityStats data={activityData} />
           </div>

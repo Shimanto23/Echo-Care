@@ -5,17 +5,41 @@ import { MoodSelector } from './mood/MoodSelector';
 import { ActivitySelector } from './mood/ActivitySelector';
 import { JournalPrompt } from './mood/JournalPrompt';
 import { SleepQuality } from './mood/SleepQuality';
+import { saveDailyCheckin } from '../../../services/dailyCheckin';
+import { toast } from 'react-hot-toast';
 
 export const DailyCheckIn = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [mood, setMood] = useState(3);
   const [activities, setActivities] = useState<string[]>([]);
   const [journalEntry, setJournalEntry] = useState('');
   const [sleepHours, setSleepHours] = useState(7);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implement submission logic
-    console.log({ mood, activities, journalEntry, sleepHours });
+    setIsSubmitting(true);
+
+    try {
+      await saveDailyCheckin({
+        mood,
+        activities,
+        journal_entry: journalEntry,
+        sleep_hours: sleepHours
+      });
+
+      toast.success('Daily check-in saved successfully!');
+      
+      // Reset form
+      setMood(3);
+      setActivities([]);
+      setJournalEntry('');
+      setSleepHours(7);
+    } catch (error) {
+      toast.error('Failed to save daily check-in. Please try again.');
+      console.error('Error saving daily check-in:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -33,8 +57,12 @@ export const DailyCheckIn = () => {
           <SleepQuality value={sleepHours} onChange={setSleepHours} />
           <JournalPrompt value={journalEntry} onChange={setJournalEntry} />
           
-          <Button type="submit" className="w-full">
-            Save Daily Check-in
+          <Button 
+            type="submit" 
+            className="w-full"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? 'Saving...' : 'Save Daily Check-in'}
           </Button>
         </form>
       </CardBody>
