@@ -1,12 +1,9 @@
-import { SVGProps, RefAttributes } from 'react';
+import { SVGProps, ComponentType } from 'react';
 
-export interface HeroIcon extends SVGProps<SVGSVGElement> {
+export interface HeroIcon {
   className?: string;
   'aria-hidden'?: boolean;
   title?: string;
-  titleId?: string;
 }
 
-export type IconComponent = React.ForwardRefExoticComponent<
-  HeroIcon & RefAttributes<SVGSVGElement>
->;
+export type IconComponent = ComponentType<SVGProps<SVGElement> & HeroIcon>;

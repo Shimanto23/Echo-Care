@@ -1,5 +1,5 @@
 import { ComponentType } from 'react';
-import { IconProps } from '@heroicons/react/24/outline';
+import { HeroIcon } from './icons';
 
 export type NotificationType = 'warning' | 'reminder' | 'achievement' | 'alert' | 'info';
 export type NotificationPriority = 'high' | 'medium' | 'low';
@@ -16,7 +16,7 @@ export interface Notification {
   message: string;
   time: string;
   read: boolean;
-  icon: ComponentType<IconProps>;
+  icon: ComponentType<HeroIcon>;
   priority?: NotificationPriority;
   actions?: NotificationAction[];
   persistent?: boolean;
