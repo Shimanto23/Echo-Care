@@ -1,11 +1,8 @@
-import { Switch } from '@headlessui/react';
-import { 
-  EyeIcon, 
-  DocumentTextIcon, // Changed from TextIcon
-  NoSymbolIcon 
-} from '@heroicons/react/24/outline';
+import { ComponentType } from 'react';
+import { EyeIcon, DocumentTextIcon, NoSymbolIcon } from '@heroicons/react/24/outline';
 import { PreferenceSection } from './PreferenceSection';
 import { AccessibilityToggle } from './toggles/AccessibilityToggle';
+import { HeroIcon } from '../../../types/icons';
 
 interface AccessibilityPreferencesProps {
   accessibility: {
@@ -21,13 +18,13 @@ export const AccessibilityPreferences = ({ accessibility, onChange }: Accessibil
     <PreferenceSection
       title="Accessibility"
       description="Customize your experience for better accessibility"
-      icon={EyeIcon}
+      icon={EyeIcon as ComponentType<HeroIcon>}
     >
       <div className="space-y-4">
         <AccessibilityToggle
           title="High Contrast"
           description="Increase contrast for better visibility"
-          icon={EyeIcon}
+          icon={EyeIcon as ComponentType<HeroIcon>}
           enabled={accessibility.highContrast}
           onChange={(value) => onChange('highContrast', value)}
         />
@@ -35,7 +32,7 @@ export const AccessibilityPreferences = ({ accessibility, onChange }: Accessibil
         <AccessibilityToggle
           title="Large Text"
           description="Increase text size throughout the app"
-          icon={DocumentTextIcon}
+          icon={DocumentTextIcon as ComponentType<HeroIcon>}
           enabled={accessibility.largeText}
           onChange={(value) => onChange('largeText', value)}
         />
@@ -43,7 +40,7 @@ export const AccessibilityPreferences = ({ accessibility, onChange }: Accessibil
         <AccessibilityToggle
           title="Reduce Motion"
           description="Minimize animations and transitions"
-          icon={NoSymbolIcon}
+          icon={NoSymbolIcon as ComponentType<HeroIcon>}
           enabled={accessibility.reduceMotion}
           onChange={(value) => onChange('reduceMotion', value)}
         />
