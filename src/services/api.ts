@@ -3,7 +3,6 @@ import { MoodEntry } from '../types/mood';
 import { JournalEntry } from '../types/journal';
 
 class ApiService {
-  // For demo, simulate API call
   async login(email: string): Promise<{ user: User; token: string }> {
     return new Promise((resolve) => {
       setTimeout(() => {
