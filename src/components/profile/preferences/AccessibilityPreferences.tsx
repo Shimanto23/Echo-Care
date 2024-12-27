@@ -24,7 +24,7 @@ export const AccessibilityPreferences = ({ accessibility, onChange }: Accessibil
         <AccessibilityToggle
           title="High Contrast"
           description="Increase contrast for better visibility"
-          icon={EyeIcon as ComponentType<HeroIcon>}
+          icon={EyeIcon}
           enabled={accessibility.highContrast}
           onChange={(value) => onChange('highContrast', value)}
         />
@@ -32,7 +32,7 @@ export const AccessibilityPreferences = ({ accessibility, onChange }: Accessibil
         <AccessibilityToggle
           title="Large Text"
           description="Increase text size throughout the app"
-          icon={DocumentTextIcon as ComponentType<HeroIcon>}
+          icon={DocumentTextIcon}
           enabled={accessibility.largeText}
           onChange={(value) => onChange('largeText', value)}
         />
@@ -40,7 +40,7 @@ export const AccessibilityPreferences = ({ accessibility, onChange }: Accessibil
         <AccessibilityToggle
           title="Reduce Motion"
           description="Minimize animations and transitions"
-          icon={NoSymbolIcon as ComponentType<HeroIcon>}
+          icon={NoSymbolIcon}
           enabled={accessibility.reduceMotion}
           onChange={(value) => onChange('reduceMotion', value)}
         />

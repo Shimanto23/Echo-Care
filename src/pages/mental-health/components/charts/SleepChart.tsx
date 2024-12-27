@@ -10,11 +10,7 @@ const demoData = [
   { date: '2024-01-07', hours: 8.5 },
 ];
 
-interface SleepChartProps {
-  timeRange?: 'week' | 'month' | 'year';
-}
-
-export const SleepChart = ({ timeRange = 'week' }: SleepChartProps) => {
+export const SleepChart = () => {
   return (
     <div className="space-y-4">
       <h3 className="text-lg font-medium">Sleep Patterns</h3>

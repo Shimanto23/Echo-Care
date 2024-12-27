@@ -25,7 +25,7 @@ export const ProgressTracking = () => {
         </CardHeader>
         <CardBody>
           <div className="space-y-8">
-            <SleepChart timeRange={timeRange} />
+            <SleepChart />
             <ActivityStats data={activityData} />
           </div>
         </CardBody>

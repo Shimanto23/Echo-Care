@@ -7,11 +7,11 @@ export function useAuth() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const login = async (email: string, password: string) => {
+  const login = async (email: string) => {
     setIsLoading(true);
     setError(null);
     try {
-      const { user, token } = await api.login(email, password);
+      const { user, token } = await api.login(email);
       localStorage.setItem('token', token);
       dispatch({ type: 'SET_USER', payload: user });
     } catch (err) {
