@@ -1,5 +1,4 @@
 import { useRef } from 'react';
-import { CameraIcon } from '@heroicons/react/24/outline';
 import { ProfileImageProps } from '../../../types/profile';
 import { ImagePreview } from './ImagePreview';
 import { UploadButton } from './UploadButton';

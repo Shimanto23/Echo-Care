@@ -1,10 +1,10 @@
 import { ComponentType } from 'react';
-import { IconProps } from '@heroicons/react/24/outline';
+import { HeroIcon } from '../../../types/icons';
 
 interface PreferenceSectionProps {
   title: string;
   description: string;
-  icon: ComponentType<IconProps>;
+  icon: ComponentType<HeroIcon>;
   children: React.ReactNode;
 }
 

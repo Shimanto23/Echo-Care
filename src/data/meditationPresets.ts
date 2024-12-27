@@ -56,5 +56,33 @@ export const meditationPresets: MeditationPreset[] = [
       'Repeat the cycle',
       'Keep breathing smooth and natural'
     ]
+  },
+  {
+    id: 'stress-relief',
+    name: 'Stress Relief',
+    description: 'Quick meditation to reduce stress and anxiety',
+    duration: 8,
+    type: 'mindfulness',
+    guidance: [
+      'Sit in a comfortable position',
+      'Take deep, calming breaths',
+      'Release tension from your shoulders',
+      'Visualize stress melting away',
+      'Focus on present moment sensations'
+    ]
+  },
+  {
+    id: 'gratitude',
+    name: 'Gratitude Practice',
+    description: 'Cultivate appreciation and positive mindset',
+    duration: 10,
+    type: 'mindfulness',
+    guidance: [
+      'Reflect on things you\'re grateful for',
+      'Feel the warmth of appreciation',
+      'Think of people who support you',
+      'Acknowledge life\'s simple pleasures',
+      'Send gratitude to yourself and others'
+    ]
   }
 ];
