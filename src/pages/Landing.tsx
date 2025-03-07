@@ -159,11 +159,11 @@ const Landing = () => {
         {/* Statistics */}
         <div className="mt-32 grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="bg-white p-8 rounded-lg shadow-sm text-center">
-            <p className="text-4xl font-bold text-teal-600">10,000+</p>
+            <p className="text-4xl font-bold text-teal-600">N/A</p>
             <p className="text-gray-600">Active Users</p>
           </div>
           <div className="bg-white p-8 rounded-lg shadow-sm text-center">
-            <p className="text-4xl font-bold text-teal-600">98%</p>
+            <p className="text-4xl font-bold text-teal-600">N/A</p>
             <p className="text-gray-600">User Satisfaction</p>
           </div>
           <div className="bg-white p-8 rounded-lg shadow-sm text-center">
