@@ -3,13 +3,13 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import { BeakerIcon, HeartIcon, MoonIcon } from '@heroicons/react/24/outline';
 
 const moodData = [
-  { date: '2024-01-01', mood: 4 },
-  { date: '2024-01-02', mood: 3 },
-  { date: '2024-01-03', mood: 5 },
-  { date: '2024-01-04', mood: 4 },
-  { date: '2024-01-05', mood: 4 },
-  { date: '2024-01-06', mood: 3 },
-  { date: '2024-01-07', mood: 5 },
+  { date: '2025-03-01', mood: 4 },
+  { date: '2025-03-02', mood: 3 },
+  { date: '2025-03-03', mood: 5 },
+  { date: '2025-03-04', mood: 4 },
+  { date: '2025-03-05', mood: 4 },
+  { date: '2025-03-06', mood: 3 },
+  { date: '2025-03-07', mood: 5 },
 ];
 
 const Dashboard = () => {
