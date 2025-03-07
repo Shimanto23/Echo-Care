@@ -1,13 +1,13 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 const demoData = [
-  { date: '2024-01-01', hours: 7.5 },
-  { date: '2024-01-02', hours: 6.5 },
-  { date: '2024-01-03', hours: 8 },
-  { date: '2024-01-04', hours: 7 },
-  { date: '2024-01-05', hours: 7.5 },
-  { date: '2024-01-06', hours: 6 },
-  { date: '2024-01-07', hours: 8.5 },
+  { date: '2025-03-01', hours: 7.5 },
+  { date: '2025-03-02', hours: 6.5 },
+  { date: '2025-03-03', hours: 8 },
+  { date: '2025-03-04', hours: 7 },
+  { date: '2025-03-05', hours: 7.5 },
+  { date: '2025-03-06', hours: 6 },
+  { date: '2025-03-07', hours: 8.5 },
 ];
 
 export const SleepChart = () => {
